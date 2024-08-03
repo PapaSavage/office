@@ -4,5 +4,5 @@ import { ref } from 'vue'
 </script>
 
 <template>
-    <div>test</div>
+    <router-view></router-view>
 </template>

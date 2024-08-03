@@ -6,7 +6,21 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        container: {
+            center: true,
+            padding: "2rem",
+            screens: {
+                "2xl": "1400px",
+            },
+        },
+        extend: {
+            colors: {
+                primary: "#2f2d2d",
+                secondary: "#525252",
+                test: "#D9D9D9",
+                darkwhite: "#F2F2F2",
+            },
+        },
     },
     plugins: [],
 };

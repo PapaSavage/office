@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Unbounded";
+    src: url("/resources/fonts/Unbounded.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    @apply text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+    @apply py-6 text-xl tracking-normal md:text-2xl lg:text-3xl;
+}
+
+p {
+    @apply mx-auto max-w-[700px] md:text-xl;
+}
+
+body {
+    font-family: "Unbounded", sans-serif;
+}
+
+.btn-primary {
+    @apply bg-primary cursor-pointer p-2 px-3 sm:p-2 sm:px-3 text-sm rounded-lg text-darkwhite hover:bg-secondary active:bg-primary shadow-xl transition-all duration-200;
+}
+
+.btn-primary-bigger {
+    @apply bg-primary cursor-pointer p-3 px-3 sm:p-8 sm:px-3 text-sm rounded-lg text-darkwhite hover:bg-secondary active:bg-primary shadow-xl transition-all duration-200;
+}
+
+.goods_container {
+    @apply grid grid-cols-2 md:grid-cols-5 gap-10;
+}
+
+.card_good {
+    @apply flex flex-col gap-2 p-2 py-3 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-200;
+}
+
+.card_good__title {
+    @apply font-semibold oneline;
+}
+
+.price {
+    @apply text-orange-500 font-bold;
+}
+
+.oneline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.link {
+    @apply text-primary hover:text-secondary cursor-pointer;
+}
+
+.good_img {
+}
