@@ -4,5 +4,7 @@ import { ref } from 'vue'
 </script>
 
 <template>
-    <router-view></router-view>
+    <div class="show-in">
+        <router-view></router-view>
+    </div>
 </template>

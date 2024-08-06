@@ -2,8 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/{any}', function () {
+Route::get('product/{id}', function () {
     return view('app');
-})->where("any", ".*");
+});
 
 
+Route::get('/load', function () {
+    return view('app');
+});
+
+Route::get('/', function () {
+    return view('app');
+});

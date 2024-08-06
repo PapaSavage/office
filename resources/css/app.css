@@ -61,5 +61,40 @@ body {
     @apply text-primary hover:text-secondary cursor-pointer;
 }
 
-.good_img {
+.loading {
+    @apply absolute top-0 right-0 h-screen w-full backdrop-blur-sm flex flex-col justify-center items-center bg-white/30;
+}
+
+.loading-spinner {
+    border: 2px solid #f3f3f3;
+    /* Light grey */
+    border-top: 2px solid #3498db;
+    /* Blue */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.show-in {
+    animation: show 1.5s ease;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

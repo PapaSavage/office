@@ -7,10 +7,10 @@ import LoadPage from "../components/LoadPage.vue";
 const routes = [
     { path: "/", component: ProductsPage },
     { path: "/product/:id", component: ProductPage },
-    {
-        path: "/:catchAll(.*)",
-        component: NotFoundPage,
-    },
+    // {
+    //     path: "/:catchAll(.*)",
+    //     component: NotFoundPage,
+    // },
     {
         path: "/load",
         component: LoadPage,
