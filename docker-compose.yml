@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - './:/var/www/html'
+      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+
+  php:
+    build:
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - './:/var/www/html'
+    depends_on:
+      - mysql
+    command: bash -c "php-fpm"
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - './docker/volume/mysql:/var/lib/mysql'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 9090:80
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+
+  node:
+    build:
+        context: .
+        dockerfile: ./docker/nodejs/Dockerfile
+    tty: true
+    ports:
+        - "5173:5173"
+    working_dir: /var/www/html
+    volumes:
+        - .:/var/www/html
