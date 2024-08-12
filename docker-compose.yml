@@ -16,7 +16,7 @@ services:
       - './:/var/www/html'
     depends_on:
       - mysql
-    command: bash -c "php-fpm"
+    command: bash -c "php artisan storage:link && php-fpm"
 
   mysql:
     image: mysql:5.7

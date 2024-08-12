@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Good;
 use Illuminate\Http\Request;
 use App\Http\Resources\GoodResource;
+use Illuminate\Support\Facades\Cache;
 
 class GoodController extends Controller
 {
@@ -13,7 +14,9 @@ class GoodController extends Controller
      */
     public function index()
     {
-        $goods = Good::with('images')->get();
+        $goods = Cache::remember('goods', 60 * 60, function () {
+            return Good::with('images')->get();
+        });
         return GoodResource::collection($goods);
     }
 
