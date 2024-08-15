@@ -41,9 +41,11 @@ class GoodController extends Controller
      */
     public function show($id)
     {
-        $good = Good::findOrFail($id);
-        $good = $good->load('extensions', 'images');
-
+        $cacheKey = "good_{$id}";
+        $good = Cache::remember($cacheKey, 60 * 60, function () use ($id) {
+            $good = Good::findOrFail($id);
+            return $good->load('extensions', 'images');
+        });
         return new GoodResource($good);
     }
 
